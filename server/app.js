@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const asyncError = require('express-async-errors')
+const dogRouter = require('./routes/dogs.js')
 
 
 
@@ -15,6 +16,9 @@ app.use('/static', express.static('assets'))
 
 
 app.use(express.json())
+
+app.use("/dogs", dogRouter)
+
 // For testing express.json middleware
 
 app.use((req, res, next) => {
